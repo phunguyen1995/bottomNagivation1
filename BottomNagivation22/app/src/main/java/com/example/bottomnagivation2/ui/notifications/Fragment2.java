@@ -18,12 +18,18 @@ import com.example.bottomnagivation2.Test1;
 import org.jetbrains.annotations.NotNull;
 
 public class Fragment2 extends Fragment {
-    String a;
     Button mButtonSend;
-    @Nullable
-    @org.jetbrains.annotations.Nullable
-    @Override
-    public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    private static String KEY_NAME = "name";
+    public static Fragment2 newInstance(String msg){
+        Fragment2 fragment = new Fragment2();
+        Bundle args = new Bundle();
+        args.putString(KEY_NAME,msg);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
    View rootView = inflater.inflate(R.layout.fragment2,container,false);
    initComponents(rootView);
    return rootView;
@@ -36,10 +42,14 @@ public class Fragment2 extends Fragment {
                 Fragment1 fragment1 = new Fragment1();
                 FragmentTransaction fragmentTransaction1 = getParentFragmentManager()
                         .beginTransaction();
-                fragmentTransaction1.replace(R.id.framLayout1,fragment1);
-
+                fragmentTransaction1.add(R.id.framLayout1,fragment1, null);
+                fragmentTransaction1.addToBackStack("aaa");
                 fragmentTransaction1.commit();
             }
         });
+    }
+
+    public void updateTextButton(String text) {
+        mButtonSend.setText(text);
     }
 }
