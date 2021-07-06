@@ -30,6 +30,7 @@ public class Fragment1 extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         View view1 = inflater.inflate(R.layout.fragment3,container,false);

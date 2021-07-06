@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="data"
+            type="com.example.bottomnagivation2.ui.data_binding.DataTest" />
+        <variable
+            name="viewModel"
+            type="com.example.bottomnagivation2.ui.data_binding.DataTestViewModel" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools">
+        <!--    tools:viewBindingIgnore="true">-->
+
+        <Button
+            android:id="@+id/btnToast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_toast"/>
+
+        <TextView
+            android:id="@+id/tvTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.name}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.age}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.teststring2()}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.changeText()}"
+            android:text="@string/action_toast"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
